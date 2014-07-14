@@ -1,0 +1,19 @@
+body, div {
+	margin: 0;
+	padding: 0;
+}
+
+[$col-width] == ::window[width] / 3;
+[$col-height] == ::window[height] / 3;
+
+div {
+	float:left;
+	width: == [$col-width];
+	height: == [$col-height];
+	background: #F0F;
+}
+p {
+	color: purple;
+	line-height: >= 16;
+	line-height: <= ::window[height] / 12;
+}

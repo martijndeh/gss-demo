@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html ng-app="test">
+<head>
+	<meta charset="utf-8">
+	<meta name="fragment" content="!">
+	<title>Test</title>
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script src="/bower_components/angular-route/angular-route.min.js"></script>
+	<script src="/scripts/fire.js"></script>
+	<link rel="stylesheet" type="text/css" href="/styles/default.css">
+	<script>GSS_CONFIG = {
+    	worker: '/bower_components/gss/dist/worker.js'
+	}</script>
+	<script src="/bower_components/gss/dist/gss.js"></script>
+	<style type="text/gss">
+	body, div {
+		margin: 0;
+		padding: 0;
+	}
+
+	[$col-width] == ::window[width] / 3;
+	[$col-height] == ::window[height] / 3;
+
+	div {
+		float:left;
+		width: == [$col-width];
+		height: == [$col-height];
+		background: #F0F;
+	}
+	</style>
+</head>
+<body ng-view></body>
+</html>
+<script>
+var app = angular.module('test', ['ngRoute']);
+
+app.controller('TestController', function($scope) {});
+app.config(['$routeProvider', function($routeProvider) {
+	$routeProvider.when('/', {
+        templateUrl: '/test.html',
+        controller: 'TestController'
+    });
+}])
+</script>

@@ -1,0 +1,21 @@
+{
+  "name": "_gss-demo",
+  "version": "0.0.0",
+  "authors": [
+    "martijndeh <martijn@ff00ff.nl>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "gss": "~1.0.4-beta",
+    "angular": "~1.2.20",
+    "angular-route": "~1.2.20"
+  }
+}

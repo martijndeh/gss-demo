@@ -1,0 +1,6 @@
+{
+  "name": "gss-demo",
+  "dependencies": {
+    "express": "^4.6.1"
+  }
+}
