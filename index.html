@@ -5,8 +5,6 @@
 	<meta charset="utf-8">
 	<meta name="fragment" content="!">
 	<title>Test</title>
-	<script src="/bower_components/angular/angular.min.js"></script>
-	<script src="/bower_components/angular-route/angular-route.min.js"></script>
 	<script>GSS_CONFIG = {
     	worker: '/bower_components/gss/dist/worker.js'
 	}</script>
@@ -29,15 +27,17 @@
 	</style>
 </head>
 <body ng-view></body>
-</html>
-<script>
-var app = angular.module('test', ['ngRoute']);
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular-route/angular-route.min.js"></script>
+  <script>
+  var app = angular.module('test', ['ngRoute']);
 
-app.controller('TestController', function($scope) {});
-app.config(['$routeProvider', function($routeProvider) {
-	$routeProvider.when('/', {
-        templateUrl: '/test.html',
-        controller: 'TestController'
-    });
-}])
-</script>
+  app.controller('TestController', function($scope) {});
+  app.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/', {
+          templateUrl: '/test.html',
+          controller: 'TestController'
+      });
+  }])
+  </script>
+</html>
