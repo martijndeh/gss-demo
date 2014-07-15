@@ -14,7 +14,7 @@ $ open http://127.0.0.1:4000/
 
 ### Case 2
 
-In this example the controller gets delayed by 1 sec and an exception is thrown when GSS boots.
+In this example the controller gets loaded normally, no exception is thrown, but the styles do not get applied.
 
 ```
 $ open http://127.0.0.1:4000/
