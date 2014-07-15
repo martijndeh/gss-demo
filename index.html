@@ -32,11 +32,12 @@
 <script>
 var app = angular.module('test', ['ngRoute']);
 
-app.controller('TestController', function($scope) {});
-app.config(['$routeProvider', function($routeProvider) {
-	$routeProvider.when('/', {
+app.controller('TestCase1Controller', function($scope) {});
+app.controller('TestCase2Controller', function($scope) {});
+app.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+	$routeProvider.when('/test-1', {
 		templateUrl: '/test.html',
-		controller: 'TestController',
+		controller: 'TestCase1Controller',
 		resolve: {
 			delay: function($q, $timeout) {
 				var delay = $q.defer();
@@ -46,6 +47,11 @@ app.config(['$routeProvider', function($routeProvider) {
 				return delay.promise;
 			}
 		}
+	});
+
+	$routeProvider.when('/test-2', {
+		templateUrl: '/test.html',
+		controller: 'TestCase2Controller'
 	});
 }])
 </script>
