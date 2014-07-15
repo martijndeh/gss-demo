@@ -5,10 +5,6 @@
 	<meta charset="utf-8">
 	<meta name="fragment" content="!">
 	<title>Test</title>
-	<script>GSS_CONFIG = {
-    	worker: '/bower_components/gss/dist/worker.js'
-	}</script>
-	<script src="/bower_components/gss/dist/gss.js"></script>
 	<style type="text/gss">
 	body, div {
 		margin: 0;
@@ -27,17 +23,30 @@
 	</style>
 </head>
 <body ng-view></body>
-  <script src="/bower_components/angular/angular.min.js"></script>
-  <script src="/bower_components/angular-route/angular-route.min.js"></script>
-  <script>
-  var app = angular.module('test', ['ngRoute']);
+<script>GSS_CONFIG = {
+	worker: '/bower_components/gss/dist/worker.js'
+}</script>
+<script src="/bower_components/gss/dist/gss.js"></script>
+<script src="/bower_components/angular/angular.min.js"></script>
+<script src="/bower_components/angular-route/angular-route.min.js"></script>
+<script>
+var app = angular.module('test', ['ngRoute']);
 
-  app.controller('TestController', function($scope) {});
-  app.config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/', {
-          templateUrl: '/test.html',
-          controller: 'TestController'
-      });
-  }])
-  </script>
+app.controller('TestController', function($scope) {});
+app.config(['$routeProvider', function($routeProvider) {
+	$routeProvider.when('/', {
+		templateUrl: '/test.html',
+		controller: 'TestController',
+		resolve: {
+			delay: function($q, $timeout) {
+				var delay = $q.defer();
+				$timeout(function() {
+					delay.resolve();
+				}, 1000);
+				return delay.promise;
+			}
+		}
+	});
+}])
+</script>
 </html>
